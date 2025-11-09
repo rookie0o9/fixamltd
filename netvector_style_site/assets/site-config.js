@@ -43,7 +43,9 @@
           "@type": "Organization",
           name: cfg.brand,
           url: "https://" + cfg.domain + "/",
-          logo: "https://" + cfg.domain + "/assets/img/logo.svg",
+          logo: "https://dev.fixam.co.uk/assets/img/logo-fixam.svg",
+
+          // logo: "https://" + cfg.domain + "/assets/img/logo.svg",
           contactPoint: [
             {
               "@type": "ContactPoint",
