@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>News · Your IT Company</title>
+    <meta
+      name="description"
+      content="Curated cybersecurity news from CISO Series, Darknet Diaries, Dark Reading and Security Affairs."
+    />
+    <!-- Load global styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <!-- Main script for navigation -->
+    <script defer src="/assets/js/main.js"></script>
+  <meta property="og:image" content="/assets/img/og-default.png">
+  <script defer src="/assets/js/include.js"></script>
+  <script defer src="/assets/site-config.js"></script>
+</head>
+  <body>
+    <!-- Site header -->
+    <div data-include="/partials/header.html"></div>
+    <!-- Main content -->
+    <section class="section">
+      <div class="container">
+        <h1>Cybersecurity News</h1>
+        <p class="lead">
+          Curated updates from CISO Series, Darknet Diaries, Dark Reading and
+          Security Affairs.
+        </p>
+        <!-- News sections will be injected here -->
+        <div id="news-container"></div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <div data-include="/partials/footer.html"></div>
+    <!-- News feed loader -->
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const feeds = [
+          { name: "CISO Series", url: "https://cisoseries.libsyn.com/rss" },
+          {
+            name: "Darknet Diaries",
+            url: "https://feeds.megaphone.fm/darknetdiaries",
+          },
+          {
+            name: "Dark Reading",
+            url: "http://www.darkreading.com/rss/all.xml",
+          },
+          {
+            name: "Security Affairs",
+            url: "http://securityaffairs.co/wordpress/feed",
+          },
+        ];
+        const container = document.getElementById("news-container");
+        // Helper to fetch and parse an RSS feed via AllOrigins to bypass CORS.
+        async function getFeed(rssUrl) {
+          const proxyUrl =
+            "https://api.allorigins.win/raw?url=" + encodeURIComponent(rssUrl);
+          const resp = await fetch(proxyUrl);
+          const text = await resp.text();
+          const parser = new DOMParser();
+          const xml = parser.parseFromString(text, "application/xml");
+          const items = Array.from(xml.querySelectorAll("item"));
+          return items.slice(0, 5).map((item) => {
+            const titleEl = item.querySelector("title");
+            const linkEl = item.querySelector("link");
+            const descEl = item.querySelector("description");
+            const pubEl = item.querySelector("pubDate");
+            return {
+              title: titleEl ? titleEl.textContent.trim() : "",
+              link: linkEl ? linkEl.textContent.trim() : "#",
+              description: descEl ? descEl.textContent.trim() : "",
+              pubDate: pubEl ? new Date(pubEl.textContent) : null,
+            };
+          });
+        }
+        for (const feed of feeds) {
+          try {
+            const articles = await getFeed(feed.url);
+            const section = document.createElement("div");
+            section.className = "feed-section";
+            const heading = document.createElement("h2");
+            heading.textContent = feed.name;
+            section.appendChild(heading);
+            const list = document.createElement("div");
+            list.className = "cards";
+            articles.forEach((article) => {
+              const card = document.createElement("div");
+              card.className = "card";
+              const title = document.createElement("h3");
+              const link = document.createElement("a");
+              link.href = article.link;
+              link.target = "_blank";
+              link.rel = "noopener";
+              link.textContent = article.title;
+              title.appendChild(link);
+              const summary = document.createElement("p");
+              summary.innerHTML = article.description.substring(0, 200) + "…";
+              card.appendChild(title);
+              card.appendChild(summary);
+              list.appendChild(card);
+            });
+            section.appendChild(list);
+            container.appendChild(section);
+          } catch (err) {
+            console.error("Failed to load feed for " + feed.name, err);
+            const errSection = document.createElement("div");
+            errSection.className = "feed-section";
+            errSection.innerHTML =
+              "<h2>" +
+              feed.name +
+              "</h2><p>Unable to load this feed at the moment.</p>";
+            container.appendChild(errSection);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "brand": "Your IT Company",
+  "domain": "dev.fixam.co.uk",
+  "phone_display": "+44 0000 000000",
+  "phone_e164": "+440000000000",
+  "email": "hello@example.com",
+  "address_lines": [
+    "123 Business Park",
+    "London",
+    "United Kingdom"
+  ],
+  "contact_cta_text": "Get in touch",
+  "social": {
+    "linkedin": "",
+    "twitter": "",
+    "facebook": ""
+  }
+}
