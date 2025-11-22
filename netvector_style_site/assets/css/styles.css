@@ -34,6 +34,30 @@ body {
   background: var(--bg);
 }
 
+/* Ensure images are responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Service and inline icons */
+.service-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon-inline {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+
 /* Links */
 a {
   color: var(--brand);
@@ -228,19 +252,17 @@ blockquote {
 /* Decorative blob */
 .hero-blob {
   width: 100%;
-  height: 320px;
   border-radius: 18px;
-  background: conic-gradient(
-    from 180deg at 50% 50%,
-    #eef2ff,
-    #dbeafe,
-    #f0fdf4,
-    #fff7ed,
-    #eef2ff
-  );
   border: 1px solid #e5e7eb;
+  overflow: hidden;
 }
 
+.hero-blob img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
 /* Responsive adjustments for hero and grid sections */
 @media (max-width: 900px) {
   .hero .wrap {

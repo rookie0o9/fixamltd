@@ -8,14 +8,80 @@
       name="description"
       content="Fixam Limited provides IT support, cloud, connectivity and cyber security services."
     />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-    <script defer src="/assets/js/main.js"></script>
-  <meta property="og:image" content="/assets/img/og-default.png">
-  <script defer src="/assets/js/include.js"></script>
-  <script defer src="/assets/site-config.js"></script>
-</head>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/main.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Fixam Limited",
+        "url": "https://fixam.co.uk/",
+        "sameAs": [],
+        "logo": "https://example.com/assets/img/logo.svg",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+44 7733 738545",
+            "contactType": "customer service",
+            "areaServed": "GB"
+          }
+        ]
+      }
+    </script>
+  </head>
   <body>
-    <div data-include="/partials/header.html"></div>
+    <header>
+      <div class="container nav">
+        <a class="logo" href="index.html"
+          ><span class="logo-mark">IT</span> Fixam Limited</a
+        >
+
+        <!-- Inline (desktop) nav -->
+        <nav class="hide-mobile">
+          <a href="index.html">Home</a>
+          <a href="business-it-support.html">Business IT Support</a>
+          <a href="microsoft-365.html">Microsoft 365</a>
+          <a href="cyber-security.html">Cyber Security</a>
+          <a href="business-connectivity.html">Connectivity</a>
+          <a href="cloud-backup.html">Cloud Backup</a>
+          <a href="it-consultancy.html">IT Consultancy</a>
+          <a href="support-packages.html">Support Packages</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="careers.html">Careers</a>
+          <a href="news/index.html">News</a>
+          <a class="cta" href="contact.html">Get in touch</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button
+          class="btn"
+          data-menu
+          aria-label="Toggle menu"
+          aria-controls="mobile-nav"
+          aria-expanded="false"
+        >
+          Menu
+        </button>
+      </div>
+
+      <!-- Mobile (collapsible) nav -->
+      <nav class="container" id="mobile-nav" data-nav>
+        <a href="index.html">Home</a>
+        <a href="business-it-support.html">Business IT Support</a>
+        <a href="microsoft-365.html">Microsoft 365</a>
+        <a href="cyber-security.html">Cyber Security</a>
+        <a href="business-connectivity.html">Connectivity</a>
+        <a href="cloud-backup.html">Cloud Backup</a>
+        <a href="it-consultancy.html">IT Consultancy</a>
+        <a href="support-packages.html">Support Packages</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="careers.html">Careers</a>
+        <a href="news/index.html">News</a>
+        <a class="cta" href="contact.html">Get in touch</a>
+      </nav>
+    </header>
 
     <section class="hero">
       <div class="container wrap">
@@ -39,11 +105,9 @@
             <a href="contact.html" class="btn">Talk to an expert</a>
           </p>
         </div>
-        <div
-          class="hero-blob"
-          role="img"
-          aria-label="Abstract illustration"
-        ></div>
+        <div class="hero-blob">
+          <img src="assets/img/hero_it_team.jpg" alt="Fixam IT support team helping clients" />
+        </div>
       </div>
     </section>
 
@@ -52,21 +116,21 @@
         <h2>Services</h2>
         <div class="cards">
           <div class="card">
-            <h3><a href="business-it-support.html">Business IT Support</a></h3>
+            <h3><img src="assets/img/icon-support.svg" alt="" class="service-icon"><a href="business-it-support.html">Business IT Support</a></h3>
             <p>
               Unlimited helpdesk, remote management & monitoring, and on-site
               escalation when you need it.
             </p>
           </div>
           <div class="card">
-            <h3><a href="microsoft-365.html">Microsoft 365</a></h3>
+            <h3><img src="assets/img/icon-m365.svg" alt="" class="service-icon"><a href="microsoft-365.html">Microsoft 365</a></h3>
             <p>
               Migration, licensing, security baselines and ongoing optimisation
               across Entra, Intune and Exchange.
             </p>
           </div>
           <div class="card">
-            <h3><a href="cyber-security.html">Cyber Security</a></h3>
+            <h3><img src="assets/img/icon-security.svg" alt="" class="service-icon"><a href="cyber-security.html">Cyber Security</a></h3>
             <p>
               From policies and training to XDR, email security, and Cyber
               Essentials readiness.
@@ -80,14 +144,14 @@
             </p>
           </div>
           <div class="card">
-            <h3><a href="cloud-backup.html">Cloud Backup</a></h3>
+            <h3><img src="assets/img/icon-backup.svg" alt="" class="service-icon"><a href="cloud-backup.html">Cloud Backup</a></h3>
             <p>
               Protect endpoints, on‑prem servers and Microsoft 365 with
               automated, monitored backups.
             </p>
           </div>
           <div class="card">
-            <h3><a href="it-consultancy.html">IT Consultancy</a></h3>
+            <h3><img src="assets/img/icon-consultancy.svg" alt="" class="service-icon"><a href="it-consultancy.html">IT Consultancy</a></h3>
             <p>
               Roadmaps, audits and solution design aligned to risk, growth and
               budget.
@@ -118,6 +182,35 @@
       </div>
     </section>
 
-    <div data-include="/partials/footer.html"></div>
+    <footer>
+      <div class="container footer-top grid-2">
+        <div>
+          <div class="logo"><span class="logo-mark">IT</span> Fixam</div>
+          <p style="max-width: 52ch; color: #cbd5e1">
+            Trusted IT support and consultancy for SMEs across the UK. Cloud,
+            connectivity and cyber security—without the jargon.
+          </p>
+          <div class="badges">
+            <span class="badge">24/7 on-call</span>
+            <span class="badge">UK helpdesk</span>
+            <span class="badge">Microsoft 365</span>
+            <span class="badge">Cyber Essentials</span>
+          </div>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>
+            <strong><img src="assets/img/icon-phone.svg" alt="" class="icon-inline" /> Phone:</strong> +44 7733 738545<br />
+            <strong><img src="assets/img/icon-email.svg" alt="" class="icon-inline" /> Email:</strong>
+            <a href="mailto:info@fixam.co.uk">info@fixam.co.uk</a><br />
+            <strong><img src="assets/img/icon-map.svg" alt="" class="icon-inline" /> Address:</strong> 36 Sandpiper Way, Orpington
+          </p>
+          <p><a href="contact.html" class="btn">Contact form</a></p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        © 2025 Fixam. All rights reserved.
+      </div>
+    </footer>
   </body>
 </html>

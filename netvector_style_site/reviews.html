@@ -8,14 +8,64 @@
       name="description"
       content="Your IT Company provides IT support, cloud, connectivity and cyber security services."
     />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-    <script defer src="/assets/js/main.js"></script>
-  <meta property="og:image" content="/assets/img/og-default.png">
-  <script defer src="/assets/js/include.js"></script>
-  <script defer src="/assets/site-config.js"></script>
-</head>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/main.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Fixam",
+        "url": "https://example.com/",
+        "sameAs": [],
+        "logo": "https://example.com/assets/img/logo.svg",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+44 7733 738545",
+            "contactType": "customer service",
+            "areaServed": "GB"
+          }
+        ]
+      }
+    </script>
+  </head>
   <body>
-    <div data-include="/partials/header.html"></div>
+    <header>
+      <div class="container nav">
+        <a class="logo" href="index.html"
+          ><span class="logo-mark">IT</span> Fixam</a
+        >
+        <nav class="hide-mobile">
+          <a href="index.html">Home</a
+          ><a href="business-it-support.html">Business IT Support</a
+          ><a href="microsoft-365.html">Microsoft 365</a
+          ><a href="cyber-security.html">Cyber Security</a
+          ><a href="business-connectivity.html">Connectivity</a
+          ><a href="cloud-backup.html">Cloud Backup</a
+          ><a href="it-consultancy.html">IT Consultancy</a
+          ><a href="support-packages.html">Support Packages</a
+          ><a href="reviews.html">Reviews</a
+          ><a href="case-studies.html">Case Studies</a
+          ><a href="careers.html">Careers</a><a href="news/index.html">News</a
+          ><a class="cta" href="contact.html">Get in touch</a>
+        </nav>
+        <button class="btn" data-menu aria-label="Toggle menu">Menu</button>
+      </div>
+      <nav class="container" data-nav hidden>
+        <a href="index.html">Home</a
+        ><a href="business-it-support.html">Business IT Support</a
+        ><a href="microsoft-365.html">Microsoft 365</a
+        ><a href="cyber-security.html">Cyber Security</a
+        ><a href="business-connectivity.html">Connectivity</a
+        ><a href="cloud-backup.html">Cloud Backup</a
+        ><a href="it-consultancy.html">IT Consultancy</a
+        ><a href="support-packages.html">Support Packages</a
+        ><a href="reviews.html">Reviews</a
+        ><a href="case-studies.html">Case Studies</a
+        ><a href="careers.html">Careers</a><a href="news/index.html">News</a
+        ><a class="cta" href="contact.html">Get in touch</a>
+      </nav>
+    </header>
 
     <section class="section">
       <div class="container">
@@ -43,6 +93,35 @@
       </div>
     </section>
 
-    <div data-include="/partials/footer.html"></div>
+    <footer>
+      <div class="container footer-top grid-2">
+        <div>
+          <div class="logo"><span class="logo-mark">IT</span> Fixam</div>
+          <p style="max-width: 52ch; color: #cbd5e1">
+            Trusted IT support and consultancy for SMEs across the UK. Cloud,
+            connectivity and cyber security—without the jargon.
+          </p>
+          <div class="badges">
+            <span class="badge">24/7 on-call</span>
+            <span class="badge">UK helpdesk</span>
+            <span class="badge">Microsoft 365</span>
+            <span class="badge">Cyber Essentials</span>
+          </div>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>
+            <strong>Phone:</strong> +44 7733 738545<br />
+            <strong>Email:</strong>
+            <a href="mailto:info@fixam.co.uk">info@fixam.co.uk</a><br />
+            <strong>Address:</strong> 36 Sandpiper way, Orpington, Kent, BR5 3NT
+          </p>
+          <p><a href="contact.html" class="btn">Contact form</a></p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        © 2025 Fixam. All rights reserved.
+      </div>
+    </footer>
   </body>
 </html>
